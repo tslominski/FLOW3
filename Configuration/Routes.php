@@ -10,7 +10,7 @@ declare(ENCODING="utf-8");
  * Please refer to the FLOW3 manual for possible configuration options.   *
  *                                                                        */
 $c->home
-	->setUrlPattern('')
+	->setUriPattern('')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
@@ -20,7 +20,7 @@ $c->home
 	);
 
 $c->comment
-	->setUrlPattern('comments/[@action]')
+	->setUriPattern('comments/[@action]')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
@@ -30,7 +30,7 @@ $c->comment
 	);
 
 $c->post
-	->setUrlPattern('posts/[postUUID].html')
+	->setUriPattern('posts/[postUUID].html')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
@@ -45,7 +45,7 @@ $c->post
 	);
 
 $c->postsByTag
-	->setUrlPattern('posts.html?tag=[tag]')
+	->setUriPattern('posts.html?tag=[tag]')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
@@ -55,7 +55,7 @@ $c->postsByTag
 	);
 
 $c->posts
-	->setUrlPattern('posts.html')
+	->setUriPattern('posts.html')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
@@ -63,10 +63,10 @@ $c->posts
 			'@action' => 'index',
 		)
 	);
-	
+
 
 $c->postsSetup
-	->setUrlPattern('setup')
+	->setUriPattern('setup')
 	->setDefaults(
 		array(
 			'@package' => 'Blog',
