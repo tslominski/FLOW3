@@ -44,16 +44,6 @@ $c->post
 		)
 	);
 
-$c->postsByTag
-	->setUriPattern('posts.html?tag=[tag]')
-	->setDefaults(
-		array(
-			'@package' => 'Blog',
-			'@controller' => 'Posts',
-			'@action' => 'postsByTag',
-		)
-	);
-
 $c->posts
 	->setUriPattern('posts.html')
 	->setDefaults(
@@ -64,6 +54,15 @@ $c->posts
 		)
 	);
 
+$c->postsByTag
+	->setUriPattern('posts.html?tag=[tag]')
+	->setDefaults(
+		array(
+			'@package' => 'Blog',
+			'@controller' => 'Posts',
+			'@action' => 'postsByTag',
+		)
+	);
 
 $c->postsSetup
 	->setUriPattern('setup')
