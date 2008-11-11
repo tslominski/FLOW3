@@ -11,7 +11,7 @@
 
 ##
 # Disable the component configuration cache.
-component:
+object:
   configurationCache:
     enable: no
 

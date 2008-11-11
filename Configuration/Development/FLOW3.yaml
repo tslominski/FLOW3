@@ -10,7 +10,9 @@
 
 ##
 # Disable the component configuration cache.
-component:configurationCache:enable: no
+object:
+  configurationCache:
+    enable: no
 
 ##
 # Disable the proxy class cache.
