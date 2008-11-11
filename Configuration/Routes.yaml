@@ -1,0 +1,52 @@
+#                                                                        #
+# Routes configuration                                                   #
+#                                                                        #
+# This file contains the configuration for the MVC router.               #
+# Just add your own modifications as necessary.                          #
+#                                                                        #
+# Please refer to the FLOW3 manual for possible configuration options.   #
+#                                                                        #
+
+home:
+  uriPattern: ''
+  defaults:
+    @package: 'Blog'
+    @controller: 'Posts'
+    @action: 'index'
+
+comment:
+  uriPattern: 'comments/[@action]'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Comments'
+    @action: 'show'
+
+post:
+  uriPattern: 'posts/[postUUID].html'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Posts'
+    @action: 'show'
+  routePartHandlers:
+    postUUID: 'F3::Blog::RoutePartHandlers::PostRoutePartHandler'
+
+posts:
+  uriPattern: 'posts.html'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Posts'
+    @action: 'index'
+
+postsByTag:
+  uriPattern: 'posts.html?tag=[tag]'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Posts'
+    @action: 'postsByTag'
+
+postsSetup:
+  uriPattern: 'setup'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Setup'
+    @action: 'index'
