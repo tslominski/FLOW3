@@ -28,7 +28,7 @@ post:
     @controller: 'Posts'
     @action: 'show'
   routePartHandlers:
-    postUUID: 'F3::Blog::RoutePartHandlers::PostRoutePartHandler'
+    postUUID: 'F3\Blog\RoutePartHandlers\PostRoutePartHandler'
 
 posts:
   uriPattern: 'posts.html'
