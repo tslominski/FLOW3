@@ -9,6 +9,7 @@
 
 home:
   uriPattern: ''
+  viewObjectNamePattern: 'F3\Fluid\View\TemplateView'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
@@ -16,6 +17,7 @@ home:
 
 comment:
   uriPattern: 'comments/[@action]'
+  viewObjectNamePattern: 'F3\Fluid\View\TemplateView'
   defaults:
     @package: 'Blog'
     @controller: 'Comments'
@@ -23,6 +25,7 @@ comment:
 
 post:
   uriPattern: 'posts/[postUUID].html'
+  viewObjectNamePattern: 'F3\Fluid\View\TemplateView'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
@@ -32,6 +35,7 @@ post:
 
 posts:
   uriPattern: 'posts.html'
+  viewObjectNamePattern: 'F3\Fluid\View\TemplateView'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
@@ -39,6 +43,7 @@ posts:
 
 postsByTag:
   uriPattern: 'posts.html?tag=[tag]'
+  viewObjectNamePattern: 'F3\Fluid\View\TemplateView'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
