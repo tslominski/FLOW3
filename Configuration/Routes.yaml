@@ -30,8 +30,8 @@ post:
   routePartHandlers:
     postUUID: 'F3\Blog\RoutePartHandlers\PostRoutePartHandler'
 
-posts:
-  uriPattern: 'posts.html'
+latestPosts:
+  uriPattern: 'blog/[blog]/'
   defaults:
     @package: 'Blog'
     @controller: 'Post'

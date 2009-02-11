@@ -8,6 +8,9 @@
 # possible configuration options.                                        #
 #                                                                        #
 
+persistence:
+  enable: y
+
 error:
   ##
   # Use the more meaningful debug exception handler.
