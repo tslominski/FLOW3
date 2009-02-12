@@ -11,21 +11,14 @@ home:
   uriPattern: ''
   defaults:
     @package: 'Blog'
-    @controller: 'Post'
+    @controller: 'Posts'
     @action: 'index'
-
-comment:
-  uriPattern: 'comments/[@action]'
-  defaults:
-    @package: 'Blog'
-    @controller: 'Comment'
-    @action: 'show'
 
 post:
   uriPattern: 'posts/[postUUID].html'
   defaults:
     @package: 'Blog'
-    @controller: 'Post'
+    @controller: 'Posts'
     @action: 'show'
   routePartHandlers:
     postUUID: 'F3\Blog\RoutePartHandlers\PostRoutePartHandler'
@@ -34,14 +27,14 @@ latestPosts:
   uriPattern: 'blog/[blog]/'
   defaults:
     @package: 'Blog'
-    @controller: 'Post'
+    @controller: 'Posts'
     @action: 'index'
 
 postsByTag:
   uriPattern: 'posts.html?tag=[tag]'
   defaults:
     @package: 'Blog'
-    @controller: 'Post'
+    @controller: 'Posts'
     @action: 'postsByTag'
 
 postsSetup:
