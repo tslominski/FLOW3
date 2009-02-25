@@ -7,15 +7,8 @@
 # Please refer to the FLOW3 manual for possible configuration options.   #
 #                                                                        #
 
-home:
-  uriPattern: ''
-  defaults:
-    @package: 'Blog'
-    @controller: 'Posts'
-    @action: 'index'
-
 post:
-  uriPattern: 'posts/[postUUID].html'
+  uriPattern: 'posts/{postUUID}.html'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
@@ -23,15 +16,22 @@ post:
   routePartHandlers:
     postUUID: 'F3\Blog\RoutePartHandlers\PostRoutePartHandler'
 
+blogs:
+  uriPattern: 'blog'
+  defaults:
+    @package: 'Blog'
+    @controller: 'Blogs'
+    @action: 'index'
+
 latestPosts:
-  uriPattern: 'blog/[blog]/'
+  uriPattern: 'blog/{blog}'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
     @action: 'index'
 
 postsByTag:
-  uriPattern: 'posts.html?tag=[tag]'
+  uriPattern: 'posts.html?tag={tag}'
   defaults:
     @package: 'Blog'
     @controller: 'Posts'
@@ -43,3 +43,54 @@ postsSetup:
     @package: 'Blog'
     @controller: 'Setup'
     @action: 'index'
+
+
+##
+# TYPO3CR route with optional controller
+
+TYPO3CR:
+  uriPattern: 'typo3cr(/{@controller})'
+  controllerObjectNamePattern: 'F3\TYPO3CR\Admin\Controller\@controllerController'
+  viewObjectNamePattern: 'F3\TYPO3CR\Admin\View\@controller@action@format'
+  defaults:
+    @controller: 'Default'
+    @action:     'index'
+    @format:     'html'
+
+##
+# TYPO3CR route with controller and optional action
+
+TYPO3CR_WithControllerAndOptionalAction:
+  uriPattern: 'typo3cr/{@controller}(/{@action})'
+  controllerObjectNamePattern: 'F3\@package\Admin\Controller\@controllerController'
+  viewObjectNamePattern: 'F3\@package\Admin\View\@controller@action@format'
+  defaults:
+    @package:    'TYPO3CR'
+    @action:     'index'
+    @format:     'html'
+
+##
+# Routes definitions for the services
+
+TYPO3CR_ServiceWithController:
+  uriPattern: 'typo3cr/service/v1/{@controller}'
+  controllerObjectNamePattern: 'F3\@package\Admin\Service\Controller\@controllerController'
+  viewObjectNamePattern: 'F3\@package\Admin\Service\View\@controller\@action@format'
+  defaults: 
+    @package:    'TYPO3CR'
+    @format:     'json'
+
+TYPO3CR_ServiceWithControllerAndFormat:
+  uriPattern: 'typo3cr/service/v1/{@controller}.{@format}'
+  controllerObjectNamePattern: 'F3\@package\Admin\Service\Controller\@controllerController'
+  viewObjectNamePattern: 'F3\@package\Admin\Service\View\@controller\@action@format'
+  defaults: 
+    @package:    'TYPO3CR'
+
+TYPO3CR_ServiceWithControllerAndIdAndOptionalFormat:
+  uriPattern: 'typo3cr/service/v1/{@controller}/{id}(.{@format})'
+  controllerObjectNamePattern: 'F3\@package\Admin\Service\Controller\@controllerController'
+  viewObjectNamePattern: 'F3\@package\Admin\Service\View\@controller\@action@format'
+  defaults: 
+    @package:    'TYPO3CR'
+    @format:     'json'
