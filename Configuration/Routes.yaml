@@ -7,43 +7,101 @@
 # Please refer to the FLOW3 manual for possible configuration options.   #
 #                                                                        #
 
-post:
-  uriPattern: 'posts/{postUUID}.html'
+##
+# Fallback route
+
+FLOW3_Fallback:
+  uriPattern: ''
   defaults:
-    @package: 'Blog'
-    @controller: 'Posts'
-    @action: 'show'
-  routePartHandlers:
-    postUUID: 'F3\Blog\RoutePartHandlers\PostRoutePartHandler'
+    @package:    'FLOW3'
+    @subpackage: 'MVC'
+    @controller: 'Default'
+    @action:     'index'
+    @format:     'html'
+
+##
+# Default route with just the package
+
+FLOW3_DefaultWithPackage:
+  uriPattern: '{@package}'
+  defaults:
+    @controller: 'Default'
+    @action:     'index'
+    @format:     'html'
+
+##
+# Default route to map the first two URL segments to package and controller
+# optional third URL segment is mapped to action
+
+FLOW3_Default:
+  uriPattern: '{@package}/{@controller}(/{@action})'
+  defaults:
+    @action:     'index'
+    @format:     'html'
+
+##
+# Default route to map the first three URL segments to package, controller and action 
+# including optional format-suffix
+
+FLOW3_DefaultWithActionAndFormat:
+  uriPattern: '{@package}/{@controller}/{@action}(.{@format})'
+  defaults:
+    @format:     'html'
+
+##
+# Routes of the Blog package:
+
+setup:
+  uriPattern: setup
+  defaults:
+    @package:    Blog
+    @controller: Setup
 
 blogs:
-  uriPattern: 'blog'
+  uriPattern: '(blogs)'
   defaults:
-    @package: 'Blog'
-    @controller: 'Blogs'
-    @action: 'index'
+    @package:    Blog
+    @controller: Blog
+    @action:     index
+    @format:     html
 
-latestPosts:
-  uriPattern: 'blog/{blog}'
+blogActions1:
+  uriPattern: 'blogs/{@action}'
   defaults:
-    @package: 'Blog'
-    @controller: 'Posts'
-    @action: 'index'
+    @package:    Blog
+    @controller: Blog
+    @action:     index
+    @format:     html
 
-postsByTag:
-  uriPattern: 'posts.html?tag={tag}'
+blogActions2:
+  uriPattern: 'blogs/{blog}/{@action}'
   defaults:
-    @package: 'Blog'
-    @controller: 'Posts'
-    @action: 'postsByTag'
+    @package:    Blog
+    @controller: Blog
+    @format:     html
+  routePartHandlers:
+    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
 
-postsSetup:
-  uriPattern: 'setup'
+posts:
+  uriPattern:    'blogs/{blog}/posts(.{@format})'
   defaults:
-    @package: 'Blog'
-    @controller: 'Setup'
-    @action: 'index'
+    @package:    Blog
+    @controller: Post
+    @action:     index
+    @format:     html
+  routePartHandlers:
+    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
 
+post:
+  uriPattern:    'blogs/{blog}/{post}(.{@format})'
+  defaults:
+    @package:    Blog
+    @controller: Post
+    @action:     show
+    @format:     html
+  routePartHandlers:
+    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
+    post: F3\Blog\RoutePartHandlers\PostRoutePartHandler
 
 ##
 # TYPO3CR route with optional controller
