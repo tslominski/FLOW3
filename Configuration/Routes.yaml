@@ -148,3 +148,18 @@ TYPO3CR_ServiceWithControllerAndIdAndOptionalFormat:
     @package:    'TYPO3CR'
     @subpackage: 'Admin\Service'
     @format:     'json'
+
+Numbers1:
+  uriPattern: 'random'
+  defaults:
+    @package: Random
+    @controller: Default
+    @action: index
+
+Numbers2:
+  uriPattern: 'random/{number}'
+  defaults:
+    @package: Random
+    @controller: Default
+    @action: show
+    
