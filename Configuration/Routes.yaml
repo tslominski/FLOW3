@@ -15,7 +15,7 @@ FLOW3_Fallback:
   defaults:
     @package:    'FLOW3'
     @subpackage: 'MVC'
-    @controller: 'Default'
+    @controller: 'Standard'
     @action:     'index'
     @format:     'html'
 
@@ -25,7 +25,7 @@ FLOW3_Fallback:
 FLOW3_DefaultWithPackage:
   uriPattern: '{@package}'
   defaults:
-    @controller: 'Default'
+    @controller: 'Standard'
     @action:     'index'
     @format:     'html'
 
@@ -111,7 +111,7 @@ TYPO3CR:
   defaults:
     @package:    'TYPO3CR'
     @subpackage: 'Admin'
-    @controller: 'Default'
+    @controller: 'Standard'
     @action:     'index'
     @format:     'html'
 
@@ -148,18 +148,3 @@ TYPO3CR_ServiceWithControllerAndIdAndOptionalFormat:
     @package:    'TYPO3CR'
     @subpackage: 'Admin\Service'
     @format:     'json'
-
-Numbers1:
-  uriPattern: 'random'
-  defaults:
-    @package: Random
-    @controller: Default
-    @action: index
-
-Numbers2:
-  uriPattern: 'random/{number}'
-  defaults:
-    @package: Random
-    @controller: Default
-    @action: show
-    
