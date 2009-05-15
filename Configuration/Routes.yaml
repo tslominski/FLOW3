@@ -49,61 +49,6 @@ FLOW3_DefaultWithActionAndFormat:
     @format:     'html'
 
 ##
-# Routes of the Blog package:
-
-setup:
-  uriPattern: setup
-  defaults:
-    @package:    Blog
-    @controller: Setup
-
-blogs:
-  uriPattern: '(blogs)'
-  defaults:
-    @package:    Blog
-    @controller: Blog
-    @action:     index
-    @format:     html
-
-blogActions1:
-  uriPattern: 'blogs/{@action}'
-  defaults:
-    @package:    Blog
-    @controller: Blog
-    @action:     index
-    @format:     html
-
-blogActions2:
-  uriPattern: 'blogs/{blog}/{@action}'
-  defaults:
-    @package:    Blog
-    @controller: Blog
-    @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
-
-posts:
-  uriPattern:    'blogs/{blog}/posts(.{@format})'
-  defaults:
-    @package:    Blog
-    @controller: Post
-    @action:     index
-    @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
-
-post:
-  uriPattern:    'blogs/{blog}/{post}(.{@format})'
-  defaults:
-    @package:    Blog
-    @controller: Post
-    @action:     show
-    @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
-    post: F3\Blog\RoutePartHandlers\PostRoutePartHandler
-
-##
 # TYPO3CR route with optional controller
 
 TYPO3CR:
