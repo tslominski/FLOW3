@@ -79,8 +79,9 @@ blogActions2:
     @package:    Blog
     @controller: Blog
     @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
+  routeParts:
+    blog:
+      handler: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
 
 posts:
   uriPattern:    'blogs/{blog}/posts(.{@format})'
@@ -89,8 +90,9 @@ posts:
     @controller: Post
     @action:     index
     @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
+  routeParts:
+    blog:
+      handler: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
 
 post:
   uriPattern:    'blogs/{blog}/{post}(.{@format})'
@@ -99,9 +101,11 @@ post:
     @controller: Post
     @action:     show
     @format:     html
-  routePartHandlers:
-    blog: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
-    post: F3\Blog\RoutePartHandlers\PostRoutePartHandler
+  routeParts:
+    blog:
+      handler: F3\Blog\RoutePartHandlers\BlogRoutePartHandler
+    post:
+      handler: F3\Blog\RoutePartHandlers\PostRoutePartHandler
 
 ##
 # TYPO3CR route with optional controller
