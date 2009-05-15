@@ -1,0 +1,39 @@
+#                                                                        #
+# Configuration for the FLOW3 Framework                                  #
+#                                                                        #
+# This file contains additions to the base configuration for the FLOW3   #
+# Framework. Just add your own modifications as necessary.               #
+#                                                                        #
+# Please refer to the default configuration file or the FLOW3 manual for #
+# possible configuration options.                                        #
+#                                                                        #
+
+persistence:
+  enable: y
+
+error:
+  ##
+  # Use the more meaningful debug exception handler.
+  exceptionHandler: className: 'F3\FLOW3\Error\DebugExceptionHandler'
+
+  ##
+  # All errors should result in exceptions.
+  errorHandler: exceptionalErrors: [%E_ERROR%, %E_USER_ERROR%, %E_RECOVERABLE_ERROR%, %E_WARNING%, %E_NOTICE%, %E_CORE_WARNING%, %E_COMPILE_WARNING%, %E_USER_WARNING%, %E_USER_NOTICE%, %E_STRICT%]
+
+resource:
+  ##
+  # Cache each resource file with check for modification time.
+  cache: strategy: file
+
+monitor:
+  fileMonitor:
+    enable: y
+    changeDetectionStrategy: F3\FLOW3\Monitor\ChangeDetectionStrategy\ModificationTime
+
+reflection:
+  detectClassChanges: y
+
+log:
+  systemLogger:
+    backend: F3\FLOW3\Log\Backend\FileBackend
+    backendOptions: { logFileURL: %FLOW3_PATH_DATA%Logs/FLOW3_Development.log }

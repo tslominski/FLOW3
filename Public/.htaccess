@@ -1,0 +1,29 @@
+#
+# FLOW3 context setting
+#
+
+#SetEnv FLOW3_CONTEXT Production
+#SetEnv FLOW3_CONTEXT Development
+
+#
+# mod_rewrite configuration
+#
+<IfModule mod_rewrite.c>
+
+	# Enable URL rewriting
+	RewriteEngine On
+
+	# You will have to change this path if your installation is located
+	# in a subdirectory of the website root.
+	RewriteBase /
+
+	# Stop rewrite processing if it is useless
+	RewriteRule ^(Resources/|robots\.txt|favicon\.ico) - [L]
+
+	# Continue only if the file/symlink/directory does not exist
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule (.*) index.php/$1
+
+</IfModule>
