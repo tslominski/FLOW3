@@ -21,7 +21,6 @@ fi
 WEBSERVER_USER="$1"
 WEBSERVER_GROUP="$2"
 
-chown $WEBSERVER_USER:$WEBSERVER_GROUP .
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 664 {} \;
 
@@ -32,7 +31,6 @@ find Data -type f -exec chmod 664 {} \;
 
 chmod 755 $0
 
-chown $WEBSERVER_USER:$WEBSERVER_GROUP Public/
 chmod 755 Public
 chmod 755 Public/index.php
 
