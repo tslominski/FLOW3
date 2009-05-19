@@ -30,7 +30,6 @@ chmod 775 Data
 find Data -type d -exec chmod 775 {} \;
 find Data -type f -exec chmod 664 {} \;
 
-chmod 755 flow3 
 chmod 755 $0
 
 chown $WEBSERVER_USER:$WEBSERVER_GROUP Public/
