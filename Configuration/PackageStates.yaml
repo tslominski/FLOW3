@@ -1,0 +1,32 @@
+#                                                                        #
+# Package states configuration                                           #
+#                                                                        #
+# This file contains information about active packages. The              #
+# configuration will be written automatically when activating or         #
+# deactivating a Package by FLOW3. Custom changes will be merged and     #
+# won't get lost.                                                        #
+#                                                                        #
+
+# $Id: $
+
+---
+Blog:
+  state: active
+DocumentationBrowser: 
+  state: active
+ExtJS: 
+  state: active
+Fluid: 
+  state: active
+Kickstart: 
+  state: active
+PHPCR: 
+  state: active
+PHPUnit: 
+  state: active
+Testing: 
+  state: active
+TYPO3CR: 
+  state: active
+Welcome: 
+  state: active

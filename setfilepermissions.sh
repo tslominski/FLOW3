@@ -30,6 +30,7 @@ find Data -type d -exec chmod 755 {} \;
 find Data -type f -exec chmod 644 {} \;
 chmod 777 Data/Logs
 
+chmod 755 flow3 
 chmod 755 $0
 
 chmod 755 Public
